@@ -57,7 +57,11 @@ export default function ContentDetailsScreen() {
   const handleConfirmDelete = () => {
     setConfirmDeleteVisible(false);
     deleteContent(content.id);
-    router.replace('/');
+    if (typeof router.navigate === 'function') {
+      router.navigate('/');
+    } else {
+      router.replace('/');
+    }
   };
 
   return (

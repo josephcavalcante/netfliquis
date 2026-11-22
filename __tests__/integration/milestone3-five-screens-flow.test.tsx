@@ -7,34 +7,34 @@ import ContentDetailsScreen from '../../app/content/[id]';
 import EditContentScreen from '../../app/content/edit/[id]';
 import EvaluateContentScreen from '../../app/content/evaluate/[id]';
 
-let currentRoute = '/';
-let currentParamId = '1';
-let setRouteTrigger: ((route: string) => void) | null = null;
+let mockCurrentRoute = '/';
+let mockCurrentParamId = '1';
+let mockSetRouteTrigger: ((route: string) => void) | null = null;
 
-function navigateTo(path: string) {
-  currentRoute = path;
+function mockNavigateTo(path: string) {
+  mockCurrentRoute = path;
   const match = path.match(/\/(\d+)$/);
   if (match) {
-    currentParamId = match[1];
+    mockCurrentParamId = match[1];
   }
-  if (setRouteTrigger) {
-    setRouteTrigger(path);
+  if (mockSetRouteTrigger) {
+    mockSetRouteTrigger(path);
   }
 }
 
 jest.mock('expo-router', () => ({
-  useLocalSearchParams: () => ({ id: currentParamId }),
+  useLocalSearchParams: () => ({ id: mockCurrentParamId }),
   useRouter: () => ({
-    push: (path: string) => navigateTo(path),
-    replace: (path: string) => navigateTo(path),
-    back: () => navigateTo(`/content/${currentParamId}`),
+    push: (path: string) => mockNavigateTo(path),
+    replace: (path: string) => mockNavigateTo(path),
+    back: () => mockNavigateTo(`/content/${mockCurrentParamId}`),
     canGoBack: () => true,
   }),
 }));
 
 function Milestone3FiveScreensRouterHarness() {
-  const [route, setRoute] = useState(currentRoute);
-  setRouteTrigger = setRoute;
+  const [route, setRoute] = useState(mockCurrentRoute);
+  mockSetRouteTrigger = setRoute;
 
   if (route === '/content/create') return <CreateContentScreen />;
   if (route.startsWith('/content/edit/')) return <EditContentScreen />;
@@ -45,8 +45,8 @@ function Milestone3FiveScreensRouterHarness() {
 
 describe('[Milestone 3 Integration] End-to-End 5 Mandatory Screens Flow in Memory', () => {
   beforeEach(() => {
-    currentRoute = '/';
-    currentParamId = '1';
+    mockCurrentRoute = '/';
+    mockCurrentParamId = '1';
   });
 
   it('navigates across all 5 screens performing Create, Details, Edit, Evaluate (with average calculation), and Delete', () => {
@@ -60,7 +60,7 @@ describe('[Milestone 3 Integration] End-to-End 5 Mandatory Screens Flow in Memor
     expect(getByTestId('header-logo')).toBeTruthy();
     fireEvent.press(getByTestId('btn-go-create'));
 
-    // 2. TELA 2 (Cadastrar): Create a new Movie "Arrival" (116 min)
+    // 2. TELA 2 (Cadastrar): Create a new Movie "A Chegada" (116 min)
     expect(getByTestId('create-content-screen')).toBeTruthy();
     fireEvent.changeText(getByTestId('form-input-title'), 'A Chegada');
     fireEvent.changeText(
