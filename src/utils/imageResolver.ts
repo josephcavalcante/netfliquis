@@ -6,56 +6,52 @@ export interface PresetCover {
 
 const IMAGE_MAP: Record<string, string> = {
   '/images/interestelar.jpg':
-    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    'https://image.tmdb.org/t/p/w1280/tR1XVa5bxgdh2bRw2u0DzrgkO2l.jpg',
   '/images/stranger-things.jpg':
-    'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
+    'https://image.tmdb.org/t/p/w1280/twfKp60THrcOIep9sjHODOOfO8d.jpg',
   '/images/oppenheimer.jpg':
-    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+    'https://image.tmdb.org/t/p/w1280/dUPQszWoRSE9FucJTbVp2bwEi9G.jpg',
   '/images/breaking-bad.jpg':
-    'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+    'https://image.tmdb.org/t/p/w1280/hGwm9Cj3CdbJIqQWNExQqiYmCd4.jpg',
   '/images/duna-2.jpg':
-    'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80',
+    'https://image.tmdb.org/t/p/w1280/VMy4UGsI2u3f4fALGeCqCdsQBb.jpg',
   '/images/the-last-of-us.jpg':
-    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
-  '/images/scifi-space.jpg':
-    'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80',
-  '/images/action-cinema.jpg':
-    'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80',
+    'https://image.tmdb.org/t/p/w1280/qWo5TP7mBijoZrfxBJkUMctkBt0.jpg',
 };
 
 export const DEFAULT_COVER_URI =
-  'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80';
+  'https://image.tmdb.org/t/p/w1280/tR1XVa5bxgdh2bRw2u0DzrgkO2l.jpg';
 
 export const PRESET_COVERS: PresetCover[] = [
   {
-    label: 'Espaço / Sci-Fi',
+    label: 'Interestelar',
     path: '/images/interestelar.jpg',
     uri: IMAGE_MAP['/images/interestelar.jpg'],
   },
   {
-    label: 'Suspense / Mistério',
+    label: 'Stranger Things',
     path: '/images/stranger-things.jpg',
     uri: IMAGE_MAP['/images/stranger-things.jpg'],
   },
   {
-    label: 'Deserto / Épico',
-    path: '/images/duna-2.jpg',
-    uri: IMAGE_MAP['/images/duna-2.jpg'],
+    label: 'Oppenheimer',
+    path: '/images/oppenheimer.jpg',
+    uri: IMAGE_MAP['/images/oppenheimer.jpg'],
   },
   {
-    label: 'Laboratório / Drama',
+    label: 'Breaking Bad',
     path: '/images/breaking-bad.jpg',
     uri: IMAGE_MAP['/images/breaking-bad.jpg'],
   },
   {
-    label: 'Galáxia / Aventura',
-    path: '/images/scifi-space.jpg',
-    uri: IMAGE_MAP['/images/scifi-space.jpg'],
+    label: 'Duna: Parte Dois',
+    path: '/images/duna-2.jpg',
+    uri: IMAGE_MAP['/images/duna-2.jpg'],
   },
   {
-    label: 'Cinema Clássico',
-    path: '/images/action-cinema.jpg',
-    uri: IMAGE_MAP['/images/action-cinema.jpg'],
+    label: 'The Last of Us',
+    path: '/images/the-last-of-us.jpg',
+    uri: IMAGE_MAP['/images/the-last-of-us.jpg'],
   },
 ];
 
