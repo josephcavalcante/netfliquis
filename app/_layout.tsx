@@ -1,10 +1,11 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { ContentProvider } from '@/context/ContentContext';
 
 export default function RootLayout() {
   return (
-    <>
+    <ContentProvider>
       <StatusBar style="light" />
       <Stack
         screenOptions={{
@@ -53,6 +54,6 @@ export default function RootLayout() {
           }}
         />
       </Stack>
-    </>
+    </ContentProvider>
   );
 }
